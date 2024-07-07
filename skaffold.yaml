@@ -1,0 +1,14 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: config
+build:
+  tagPolicy:
+    gitCommit:
+      ignoreChanges: true # do not add `-dirty` suffix
+  artifacts:
+    # PLEX
+    - image: testimage
+      context: .
+      docker:
+        dockerfile: Dockerfile
