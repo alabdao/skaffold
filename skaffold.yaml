@@ -3,6 +3,9 @@ kind: Config
 metadata:
   name: config
 build:
+  local:
+    useBuildkit: true
+    tryImportMissing: true
   tagPolicy:
     gitCommit:
       ignoreChanges: true # do not add `-dirty` suffix
@@ -12,3 +15,7 @@ build:
       context: .
       docker:
         dockerfile: Dockerfile
+    - image: testimage3
+      context: .
+      docker:
+        dockerfile: Dockerfile2
